@@ -1,0 +1,16 @@
+{% extends "base_dark.html" %}
+{% block content %}
+
+<div class="container centered">
+    <div class="row">
+        <div class="text-center logo col-md-12">grumblr</div>
+        <form action="{% url 'grumblr:register'%}">
+            <button type="submit" class="center-block btn-lg register-btn">Getting Started</button>
+        </form>
+        <form action="{% url 'grumblr:login'%}">
+            <button type="submit" class="center-block btn-lg home-login-btn">Log In</button>
+        </form>
+    </div>
+</div>
+    
+{% endblock content %}

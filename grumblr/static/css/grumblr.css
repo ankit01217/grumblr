@@ -1,0 +1,308 @@
+.logo{
+    font-family: 'Rockwell';
+    font-size: 50px;
+    color: white;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 15px;
+    
+}
+
+.register-logo{
+    margin-top: -80px;
+}
+
+.purple-bg{
+	background-color: #58488f;
+}
+
+button{
+    font-family: Roboto, sans-serif;
+    font-size: 2.7em;
+    font-weight: 100;
+    
+}
+
+.forgotpass{
+    margin-left: 10%;
+    margin-top: 3px;
+    padding-left: 3px;
+    text-decoration: none !important;
+    cursor: pointer;
+}
+
+.forgotpass a{
+    color: #58488f;
+}
+
+.capitalize-text{
+    text-transform: capitalize;
+}
+.lower-text{
+    text-transform: lowercase;
+}
+
+.centered{
+    position: fixed;
+    width: 400px;
+    height: 300px;
+    top: 50%;
+    left: 50%;
+    margin-top: -150px;
+    margin-left: -200px;
+}
+
+.register-btn{
+    background-color: #FFFECE;
+    color: #58488f;
+    border: none;
+    width: 250px;
+    margin-top: 15px;
+    display: block;
+    
+}
+
+.home-login-btn{
+    background-color: #FFFFFF;
+    color: #58488f;
+    border: none;
+    width: 250px;
+    margin-top: 15px;
+    display: block;
+
+}
+
+.signup-title{
+    font-family: Roboto, sans-serif;
+    font-size: 1.6em;
+    font-weight: 100;
+    margin-top: 25px;
+    color: #58488f;
+    border: none;
+    
+}
+
+.tag-line{
+    font-family: Roboto, sans-serif;
+    font-size: 1em;
+    font-weight: 100;
+    color: #999999;
+    border: none;
+    
+}
+
+.login-input{
+    font-family: Roboto, sans-serif;
+    margin-top: 10px;
+    border-color: #999999;
+    height: 40px;
+    width: 80%;
+    margin-left: 10%;
+}
+
+.reg-name-flex{
+    display:flex;
+    justify-content: center;
+    width: 91%
+}
+.compose-btn-flex{
+    display:flex;
+    justify-content: center;
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 2%;
+    
+}
+.reg-name-item{
+    margin-left: 3%;
+}
+
+.register-error{
+    font-family: Roboto, sans-serif;
+    font-size: 1em;
+    font-weight: bold;
+    color: #c0392b;
+    border: none;
+    margin-left: 10%;
+    margin-top: 5px;
+}
+
+.login-error{
+    font-family: Roboto, sans-serif;
+    font-size: 1em;
+    font-weight: bold;
+    color: #c0392b;
+    border: none;
+    margin-left: 10%;
+    margin-top: -70px;
+}
+
+.compose-error{
+    font-family: Roboto, sans-serif;
+    font-size: 1em;
+    font-weight: bold;
+    color: #c0392b;
+    border: none;
+    margin-left: 10%;
+}
+
+.register-container{
+    background-color: white;
+    display: inline-block;
+    position: fixed;
+    width: 400px;
+    height: 430px;
+    top: 50%;
+    left: 50%;
+    margin-top: -150px;
+    margin-left: -200px;
+    border-radius: 5px;
+}
+
+.login-container{
+    background-color: white;
+    display: inline-block;
+    position: fixed;
+    width: 400px;
+    height: 330px;
+    top: 50%;
+    left: 50%;
+    margin-top: -160px;
+    margin-left: -200px;
+    border-radius: 5px;
+    padding: 0;
+}
+
+.auto-container{
+    height: auto;
+    padding-bottom: 30px;
+}
+
+.login-title{
+    font-family: Roboto, sans-serif;
+    font-size: 1.6em;
+    font-weight: 100;
+    margin-top: 45px;
+    margin-bottom: 30px;
+    color: #58488f;
+    border: none;
+    
+}
+
+.login-bottom-overlay{
+    background-color: #f3f3f3;
+    height: 40px;
+    width: 100%;
+    padding: 0;
+    margin-top: 40px;
+    border-radius: 5px;
+}
+
+.register-title{
+    font-family: Roboto, sans-serif;
+    font-size: 1.1em;
+    font-weight: 100;
+    padding-top: 10px;
+    color: #999999;
+    width: 100%;
+    border: none;
+    
+}
+
+.login-btn{
+    background-color: #58488f;
+    color: #ffffff;
+    border: none;
+    width: 80%;
+    margin-top: 15px;
+    display: block;
+}
+
+.register-link{
+    color: #58488f;
+    display: inline-block;
+    text-decoration: underline;
+}
+
+.home-login-btn:hover, .register-btn:hover, .login-btn:hover{
+ opacity:0.9;
+}
+
+.compose-container{
+    background-color: white;
+    display: inline-block;
+    position: fixed;
+    width: 400px;
+    top: 50%;
+    left: 50%;
+    margin-top: -160px;
+    margin-left: -200px;
+    border-radius: 5px;
+    padding: 10px;
+    padding-bottom: 20px;
+    
+}
+
+
+.attach-title{
+    font-family: Roboto, sans-serif;
+    font-size: 0.8em;
+    font-weight: 100;
+    margin-top: 5px;
+    margin-left: 8%;
+    color: #58488f;
+    border: none;
+    
+}
+
+.post-input{
+    font-family: Roboto, sans-serif;
+    margin-top: 10px;
+    border-color: #999999;
+    height: 40px;
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 30px;
+}
+
+.post-btn{
+    background-color: #58488f;
+    color: #ffffff;
+    border: none;
+    width: 150px;
+    margin-top: 5px;
+    display: inline-block;
+    margin-left: 30px;
+    float: left;
+}
+
+.cancel-btn{
+    background-color: #999999;
+    color: #ffffff;
+    border: none;
+    width: 150px;
+    margin-top: 5px;
+    display: inline-block;
+    margin-right: 30px;
+    float: right;
+}
+
+.submit-btn{
+    font-family: Roboto, sans-serif;
+    font-size: 1em;
+    background-color: #58488f;
+    color: #ffffff;
+    border: none;
+    width: 100px;
+    margin-top: 5px;
+    display: inline-block;
+    margin-left: 0px;
+    height: 35px;
+    border-radius: 5px;
+}
+
+.forgot-message{
+    width: 85%;
+    margin-left: 10%;
+    text-align: left;
+}

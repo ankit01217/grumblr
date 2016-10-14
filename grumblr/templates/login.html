@@ -1,0 +1,28 @@
+{% extends "base_dark.html" %}
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 login-container">
+            <div class="text-center logo register-logo col-md-12">grumblr</div>
+            <div class="text-center login-title">Log in to your account</div>
+            <form action="{% url 'grumblr:login'%}" method="post"> {%csrf_token%}
+                <input type="text" name="username" placeholder="Username" class="form-control login-input lower-text" id="username">
+                <input type="password" name="password" placeholder="Password" class="form-control login-input" id="password">
+                <div class="register-link forgotpass"><a href="{% url 'password_reset' %}">Forgot password?</a></div>
+                <button type="submit" class="center-block btn-lg login-btn">Log In</button>
+                <input type="hidden" name="next" value="{{ next }}" />
+            </form>
+            <div class="login-bottom-overlay">
+                <div class="text-center register-title">New to grumblr? <a href="{% url 'grumblr:register'%}"><span class="register-link">Register</span></a></div>
+            </div>
+            {% if form.non_field_errors %}
+            <div class="login-error">
+                * {{form.non_field_errors|first}}
+            </div>
+            {%endif%}
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

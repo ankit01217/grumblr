@@ -1,0 +1,42 @@
+<!-- Post Template -->
+<template id="post-template">
+    <div class="card">
+        <div class="card-bottom-overlay">
+            <div class="col-md-12">
+                <img src="" alt="user profile image" class="img-circle profile-pic" id="post-user-avatar">
+                <a href="" id="post-user-link"><span class="profile-link capitalize-text" id="post-user"></span></a>
+                <span class="date-time"></span>
+            </div>
+        </div>
+        <div class="post-image-div">
+            <img src="" alt="post image" class="post-image">
+        </div>
+        <div class="card-text card-text-bg"></div>
+        <div class="card-comment-container">
+            <div id="comments">
+                <div class="card-comment">
+                </div>
+            </div>
+            <div class="comment-input-container">
+                <form method="post" id="comment-form" action=""> {%csrf_token%}
+                  <input class="form-control login-input comment-input" placeholder="Add a comment..." name="comment" type="text" required />
+                  <input class="hidden" name="post_id" type="text" id="comment-post-id"/>
+                  <button type="submit" class="hidden center-block btn-lg login-btn"></button>
+              </form>
+          </div>
+      </div>
+  </div>
+</template>
+
+<!-- Comment Template -->
+<template id="comment-template">
+    <div class="card-comment">
+        <div class="comment-pic-div">
+            <img src="" alt="user profile image" id="comment-user-avatar" class="comment-pic img-circle profile-pic">
+        </div>
+        <div class="comment-text comment-col">
+            <a href="" id="comment-user-link"><span class="profile-link capitalize-text" id="comment-user"></span></a><span class="card-text" id="comment"></span>
+            <div class="comment-time"></div>
+        </div>
+    </div>
+</template>

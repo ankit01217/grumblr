@@ -1,0 +1,38 @@
+{% extends "base_dark.html" %}
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 register-container auto-container">
+            <div class="text-center logo register-logo col-md-12">grumblr</div>
+            <div class="text-center signup-title">Sign Up</div>
+            <div class="text-center tag-line">It's free and always will be</div>
+            <form method="post">{%csrf_token%}
+                <div class="reg-name-flex">
+                    {{ form.firstname }}
+                    {{ form.firstname.errors }}
+                    {{ form.lastname }}
+                    {{ form.lastname.errors }}
+                </div>
+                {{ form.username }}
+                {{ form.username.errors }}
+                {{ form.email }}
+                {{ form.email.errors }}
+                {{ form.password }}
+                {{ form.password.errors }}
+                {{ form.cpassword }}
+                {{ form.cpassword.errors }}
+
+                <button type="submit" class="center-block btn-lg login-btn">Sign Up</button>
+            </form>
+            {% if form.non_field_errors %}
+            <div class="register-error">
+                * {{form.non_field_errors|first}}
+            </div>
+            {%endif%}
+
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

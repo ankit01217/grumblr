@@ -1,0 +1,38 @@
+{% extends "base_dark.html" %}
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 compose-container auto-container">
+            <div class="text-center logo register-logo col-md-12">grumblr</div>
+            <form action="{% url 'grumblr:compose'%}" method="post" enctype="multipart/form-data">{%csrf_token%}
+                <div class="row">
+                    {{ form.desc }}
+                    {{ form.desc.errors }}
+                </div>
+                <div class="row attach-title">
+                    {{ form.attachment }}
+                    {{ form.attachment.errors }}
+                </div>
+                <div class="row">
+                    <div class="compose-btn-flex">
+                        <button type="submit" name="post" class="center-block btn-lg post-btn">Post</button>
+                        <button type="submit" formnovalidate name="cancel" class="center-block btn-lg cancel-btn">Cancel</button>
+                    </div>
+                    
+                </div>
+            </form>
+            {% if form.non_field_errors %}
+            <div class="compose-error">
+                * {{form.non_field_errors|first}}
+            </div>
+            {%endif%}
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
+
+
+
+

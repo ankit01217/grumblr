@@ -1,0 +1,135 @@
+{% extends "base_light.html" %}
+{% block content %}
+
+<!-- Nav bar -->
+<div class="container nav-container">
+  <div class="row">
+    <div class="col-md-4 nav-left">
+      <a href="{% url 'grumblr:globalstream'%}"><span class="logo-icon">g</span></a>
+    </div>
+    <div class="col-md-2 nav-right">
+      <a href="{% url 'grumblr:logout'%}"><span class="glyphicon glyphicon-log-out logout-btn"></span></a>
+    </div>
+
+  </div>
+</div>
+
+<div class="container">
+  <!--  Content Area-->
+  <div class="row centered">
+    <div class="col-lg-4 profile-info">
+      <div class="profile-panel">
+        <form action="{% url 'grumblr:change_avatar' %}" method="post" id="avatar-form" enctype="multipart/form-data">{%csrf_token%}
+          <div class="image-upload">
+            <label for="file-input">
+              {% if refuser.userprofile.avatar %}
+              {% load static %}
+              <img src="{{refuser.userprofile.avatar.url}}" alt="user profile image" {% if user == refuser %} onmouseover='this.src="{% static 'images/change-picture.png' %}"'onmouseout='this.src="{{refuser.userprofile.avatar.url}}"' {% endif %} class="img-circle profile-pic-big">
+              {% else %}
+              {% load static %}
+              <img src="{% static 'images/default-avatar.png'%}" alt="user profile image" {% if user == refuser %} onmouseover='this.src="{% static 'images/change-picture.png' %}"' onmouseout='this.src="{% static 'images/default-avatar.png' %}"' {% endif %} class="img-circle profile-pic-big">
+              {% endif %}
+            </label>
+            
+            {% if user == refuser %}
+              {{form.avatar}}
+              {{form.avatar.errors }}
+            {% endif %}
+
+          </div>
+        </form>
+      </div>
+
+      <div class="col-lg-offset-4">
+        <div class="profile-bio">
+          {{refuser.first_name|capfirst}} {{refuser.last_name|capfirst}}
+          {% if user == refuser %}
+          <div class="edit-icon glyphicon glyphicon-pencil" data-toggle="modal" data-target="#editProfileModal"></div>
+          {% endif %}
+        </div>
+        
+        <div>Age: <span class="profile-bio">{% if refuser.userprofile.age %}{{refuser.userprofile.age}} {%endif%}</span></div>
+        <div>Intro: <span class="profile-bio">{% if refuser.userprofile.bio %}{{refuser.userprofile.bio}} {%endif%}</span></div>
+        {% if user != refuser %}
+        <form action="{%url 'grumblr:follow' refuser.id %}" method="post">{%csrf_token%}
+          <button class="follow-btn">{{follow}}</button>
+        </form>
+        {%else%}
+        <form action="{%url 'grumblr:password_change'%}">
+          <button class="follow-btn">change password?</button>
+        </form>
+        {% endif %}
+
+
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div id="post-list">
+           <!-- posts will be loaded by javascript ajax call -->
+      </div>
+    </div>
+  </div>
+  
+</div>
+
+<!-- </div>  -->
+
+<!-- Modal -->
+<div class="modal fade" id="editProfileModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <button type="button" class="close" 
+        data-dismiss="modal">
+        <span aria-hidden="true">&times;</span>
+        <span class="sr-only">Close</span>
+      </button>
+      <h4 class="modal-title" id="myModalLabel">
+        Edit Profile
+      </h4>
+    </div>
+    <!-- Modal Body -->
+    <div class="modal-body">
+      <form role="form" action="{%url 'grumblr:profile' refuser.id %}"" method="post">{%csrf_token%}
+        <div class="form-group">
+          <label class="control-label">First Name</label>
+          <input type="text" name="firstname" value="{{refuser.first_name}}" class="form-control login-input"/>
+        </div>
+        <div class="form-group">
+          <label class="control-label">Last Name</label>
+          <input type="text" name="lastname" value="{{refuser.last_name}}" class="form-control login-input"/>
+        </div>
+        <div class="form-group">
+          <label class="control-label">Age</label>
+          <input type="number" name="age" value="{{refuser.userprofile.age}}" class="form-control" login-input/>
+        </div>
+        <div class="form-group">
+          <label class="control-label">Intro</label>
+          <textarea name="bio" maxlength="420" rows="4" class="form-control login-input">
+            {%if refuser.userprofile.bio %} {{refuser.userprofile.bio}} {%endif%}
+          </textarea>
+        </div>
+
+        <button type="submit" name="save" class="save-btn">Save</button>
+        <button type="button" class="close-btn" data-dismiss="modal">Close</button>
+      </form>
+    </div>
+  </div>
+</div>
+</div> 
+
+{%include "post_template.html" %}
+<script>
+    {% load static %}
+    var static_url = "{% get_static_prefix %}";
+    var media_url = "{% get_media_prefix %}";
+    var profile_url = "{% url 'grumblr:profile' 999 %}";
+    var comment_url = "{% url 'grumblr:comment' %}";
+    var change_avatar = "{% url 'grumblr:change_avatar' %}"; 
+    
+</script>
+<script src="{%static 'js/stream.js'%}"></script>
+{% endblock content %}
+
+

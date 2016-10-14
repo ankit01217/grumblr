@@ -1,0 +1,21 @@
+<!-- Nav bar -->
+<div class="container nav-container">
+    <div class="row">
+        <div class="col-md-4 nav-left">
+            <a href="{% url 'grumblr:globalstream'%}"><span class="logo-icon">g</span></a>
+        </div>
+        <div class="title text-center col-xs-5 col-xs-offset-3 stream-title">What's happening</div>
+        <div class="nav-right">
+            {% if user.userprofile.avatar %}
+            {% load static %}
+            <img src="{{user.userprofile.avatar.url}}" alt="user profile image" class="img-circle profile-pic nav-profile">
+            {% else %}
+            {% load static %}
+            <img src="{% static 'images/default-avatar.png' %}" alt="user profile image" class="img-circle profile-pic nav-profile">
+            {% endif %}
+            <div class="profile-name"><a href="{% url 'grumblr:profile' user.id%}"><span class="profile-name">{{user.first_name|capfirst}}</span></a></div>
+            <a href="{% url 'grumblr:logout'%}"><span class="glyphicon glyphicon-log-out logout-btn"></span></a>
+        </div>
+        
+    </div>
+</div>

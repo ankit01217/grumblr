@@ -1,0 +1,47 @@
+{% extends "base_light.html" %}
+{% block content %}
+
+{%include "stream_nav.html" %}
+
+<!-- List of posts -->
+<div class="container">
+  <!--  Content Area-->
+  <div class="row centered">
+    <div class="col-lg-6 col-lg-offset-3" id="post-list">
+     <!-- posts will be loaded by javascript ajax call -->
+   </div>
+
+ </div>
+
+</div>  
+
+
+<!-- Friends stream post button -->
+<a href="{% url 'grumblr:friendstream'%}"><span>
+  {% load static %}
+  <img src="{% static 'images/friends.png'%}" alt="friends button image" class="friends-btn">
+</span></a>
+
+<!-- Compose post button -->
+<a href="{% url 'grumblr:compose'%}"><span>
+  {% load static %}
+  <img src="{% static 'images/compose.png'%}" alt="compose button image" class="compose-btn">
+</span></a>
+
+{%include "post_template.html" %}
+<script>
+  {% load static %}
+  var static_url = "{% get_static_prefix %}";
+  var media_url = "{% get_media_prefix %}";
+  var profile_url = "{% url 'grumblr:profile' 999 %}";
+  var comment_url = "{% url 'grumblr:comment' %}";
+
+</script>
+<script src="{%static 'js/stream.js'%}"></script>
+
+
+{% endblock content %}
+
+
+
+
