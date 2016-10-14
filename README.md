@@ -1,6 +1,3 @@
-General Notes for Hw5 - Grumblr Application
-
-
 Rest_Framework Module for Serializers
 -------------------------------------------------------------------------------------------
 I have used django rest_framework module for nested serilizing using serializer classes. All classes are in grumblr/serialzers.py file  
