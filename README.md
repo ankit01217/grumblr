@@ -19,9 +19,9 @@ I have used grumblr.js for loading posts after every 5 seconds. Also i have adde
 <template> element for reusable client template
 -------------------------------------------------------------------------------------------
 
-I have used "post_template.html" template which is used by grumblr.js to dynamically load content from json data
-	1) reusable template element makes it easy to maintain 
-	2) post_template is used in muliple pages (profile, friendstream, global stream) for all posts	
+I have used "post_template.html" template which is used by grumblr.js to dynamically load content from json data	
+1) reusable template element makes it easy to maintain 	
+2) post_template is used in muliple pages (profile, friendstream, global stream) for all posts	
 
 	
 AJAX data loading
